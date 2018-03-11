@@ -1,11 +1,7 @@
 /***************************************************************
 Title: Homework.cpp
 Author: Anupam Das
-Date Created: 4/7/2017
-Class: Spring 2017, CSCI 235-04, Mon & Wed 7:00pm - 8:15pm
-Professor:Aarsh Vora
-Purpose: Assignment#2
-Description: provides function defintion for the Homework class
+Description: provides function definition for the Homework class
 ***************************************************************/
 #include "Homework.h"
 #include <iostream>

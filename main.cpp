@@ -1,11 +1,7 @@
 /***************************************************************
 Title: main.cpp
 Author: Anupam Das
-Date Created: 4/7/2017
-Class: Spring 2017, CSCI 235-04, Mon & Wed 7:00pm - 8:15pm
-Professor:Aarsh Vora
-Purpose: Assignment#2
-Description: Asks for the command and calls the function necesarry to execute that task 
+Description: Asks for the command and calls the function necessary to execute that task 
 ***************************************************************/
 #include<iostream>
 #include<string>

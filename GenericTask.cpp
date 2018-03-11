@@ -1,11 +1,7 @@
 /***************************************************************
 Title: GenericTask.cpp
 Author: Anupam Das
-Date Created: 4/7/2017
-Class: Spring 2017, CSCI 235-04, Mon & Wed 7:00pm - 8:15pm
-Professor:Aarsh Vora
-Purpose: Assignment#2
-Description: provides function defintion for the GenericTask class
+Description: provides function definition for the GenericTask class
 ***************************************************************/
 
 #include "GenericTask.h"
@@ -16,7 +12,7 @@ Description: provides function defintion for the GenericTask class
 using namespace std;
 /*
 This class is a base class for other derived classes and contains 3 different virtual functions. Each class has
-a slighlty  different different version of the functions.
+a slightly  different different version of the functions.
 */
 
 bool GenericTask::operator< (GenericTask& rhs)

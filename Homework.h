@@ -1,11 +1,7 @@
 /***************************************************************
 Title: Homework.h
 Author: Anupam Das
-Date Created: 4/7/2017
-Class: Spring 2017, CSCI 235-04, Mon & Wed 7:00pm - 8:15pm
-Professor:Aarsh Vora
-Purpose: Assignment #2
-Description: provides function protocol for the Homework class, and provides defintion
+Description: provides function protocol for the Homework class, and provides definition
 			for the inline functions
 ***************************************************************/
 #ifndef  __Homework_H_

@@ -1,11 +1,7 @@
 /***************************************************************
 Title: CommandDriver.cpp
 Author: Anupam Das
-Date Created: 4/4/2017
-Class: Spring 2017, CSCI 235-04, Mon & Wed 7:00pm - 8:15pm
-Professor:Aarsh Vora
-Purpose: Assignment#2
-Description: provides function defintion for the CommandDriver class
+Description: provides function definition for the CommandDriver class
 ***************************************************************/
 
 #include "CommandDriver.h"
@@ -27,7 +23,7 @@ void CommandDriver:: addTasks()
 	
 	if (!(taskType == 'G' || taskType == 'S' || taskType == 'E' || taskType == 'H'))
 	{
-		cout << "Unrecognizable task type enterted" << endl;
+		cout << "Unrecognizable task type entered" << endl;
 		return;
 	}
 		

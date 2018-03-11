@@ -1,11 +1,7 @@
 /***************************************************************
 Title: SortedLinkedList.cpp
 Author: Anupam Das
-Date Created: 4/7/2017
-Class: Spring 2017, CSCI 235-04, Mon & Wed 7:00pm - 8:15pm
-Professor:Aarsh Vora
-Purpose: Assignment#2
-Description: provides function defintion for the SortedLinkedList class
+Description: provides function definition for the SortedLinkedList class
 ***************************************************************/
 
 #ifndef __LinkedList_CPP_
@@ -31,7 +27,7 @@ void SortedLinkedList<typeName, Comparator>::insert (int pos, const typeName& ne
 		
 		temp->data = newData;
 		
-		//if there are no element in the lsit enter newData in the head
+		//if there are no element in the list enter newData in the head
 		if (pos == 0)
 		{
 			temp->next = head;
@@ -47,13 +43,13 @@ void SortedLinkedList<typeName, Comparator>::insert (int pos, const typeName& ne
 		
 			curr = head;
 		
-			//moves up curr until the it goes the node before pos
+			//moves up curr pointer until the it goes the node before pos
 			for (int i = 0; i < pos-1; ++i)
 			{
 				curr = curr->next;	
 			}
 		
-			//sets tempm to curr's next, and curr's next to temp
+			//sets temp pointer to curr pointer's next, and curr pointer's next to temp pointer
 			temp->next = curr->next;
 			curr->next = temp;
 			
