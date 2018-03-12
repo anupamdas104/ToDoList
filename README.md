@@ -83,14 +83,14 @@ Design:
 		All the commands are inputed by the user and stored in a variable in the main file. The main file creates an object of type CommandDriver, and calls the 
 		functions of desired tasks. The CommandDriver takes care of all the input and output necessary within the commands. This class has 2 private Data structures. 
 		They are 2 sorted linked lists, one to store incomplete tasks, other one to store complete tasks. It also has another private memeber variable of type "GenericTask"
-		and the pointer to object is used to pass thorugh the information during the task additon process.
+		and the pointer to object is used to pass through the information during the task addition process.
 		
 			CommandDriver.h:
 				The functions in CommandDriver.h includes:
 				
-					void addTasks()
+					void addTasks();
 					
-					void printTasks()
+					void printTasks();
 					
 					void printDetailedTasks();
 					
@@ -110,10 +110,10 @@ How to compile and run this code:
 	To compile, run, and clean object files this code in Linux or Mac os, use the following commands:
 	
 		1. make
-		2. ./Project2
+		2. ./ToDoList
 		3. make clean
 	
 	And to compile and run this code in Windows, run the following commands:
-		1. mingw32-maake.exe
-		2. Project2.exe
-	Note: the above command is used for te mingw g++ compiler. 
+		1. mingw32-make
+		2. ToDoList.exe
+	Note: the above command is used for the mingw g++ compiler. 
