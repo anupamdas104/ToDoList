@@ -4,7 +4,7 @@ CFLAGS = -c -Wall
 
 SOURCES = main.cpp CommandDriver.cpp GenericTask.cpp Date.cpp ShoppingTask.cpp Event.cpp Homework.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE_NAME = Project2
+EXECUTABLE_NAME = ToDoList
 
 all: $(EXECUTABLE_NAME)
 
