@@ -13,92 +13,75 @@ Description: provides function definition for the SortedLinkedList class
 using namespace std;
 
 template<class typeName, class Comparator>
-SortedLinkedList<typeName, Comparator>:: SortedLinkedList()
-{
+SortedLinkedList<typeName, Comparator>:: SortedLinkedList(){
 	head = NULL; 
 	size_= 0;
 }
 
 template<class typeName, class Comparator>
-void SortedLinkedList<typeName, Comparator>::insert (int pos, const typeName& newData)
-{
+void SortedLinkedList<typeName, Comparator>::insert (int pos, const typeName& newData){
+	Node* temp =  new Node;	
+	temp->data = newData;
+		
+	//if there are no element in the list enter newData in the head
+	if (pos == 0){
+		temp->next = head;
+		head = temp;
+		
+		++size_;
+		
+		return;
+	}else{
+		Node* curr;
+		
+		curr = head;
 	
-		Node* temp =  new Node;
-		
-		temp->data = newData;
-		
-		//if there are no element in the list enter newData in the head
-		if (pos == 0)
-		{
-			temp->next = head;
-			head = temp;
-			
-			++size_;
-			
-			return;
+		//moves up curr pointer until the it goes the node before pos
+		for (int i = 0; i < pos-1; ++i){
+			curr = curr->next;	
 		}
-		else
-		{
-			Node* curr;
 		
-			curr = head;
+		//sets temp pointer to curr pointer's next, and curr pointer's next to temp pointer
+		temp->next = curr->next;
+		curr->next = temp;
 		
-			//moves up curr pointer until the it goes the node before pos
-			for (int i = 0; i < pos-1; ++i)
-			{
-				curr = curr->next;	
-			}
-		
-			//sets temp pointer to curr pointer's next, and curr pointer's next to temp pointer
-			temp->next = curr->next;
-			curr->next = temp;
-			
-			++size_;		
-		}	
+		++size_;		
+	}	
 }
 
 template<class typeName, class Comparator>
-void SortedLinkedList<typeName, Comparator>::insert (const typeName& newData)
-{
+void SortedLinkedList<typeName, Comparator>::insert (const typeName& newData){
 	Node* temp =  new Node;
 		
 	temp->data = newData;
 		
-	if (is_empty())
-	{
+	if (is_empty()){
 		temp->next = NULL;
 		head = temp;
 		
-		
 		++size_;
-			
 		return;
 	}
 	
 	Node* curr;
-	
 	curr = head;
+
 	//cout << "1" << endl;
 	Comparator genericTaskComparator;
 	
 	//cout << 2 << endl;
-	for (int i = 0; i < size(); ++i)
-	{
+	for (int i = 0; i < size(); ++i){
 		//compares data, if new data is less than data calls insert, otherwise moves curr pointer to the next node
-		if (genericTaskComparator(newData, curr->data))  
-		{
+		if (genericTaskComparator(newData, curr->data)){
 			insert(i,newData);
 			break;
-		}
-		else
-		{	//enter newData in the last node if the due date is the latest of all other tasks
-			if ( i == size()-1)
-			{
+		}else{	
+			//enter newData in the last node if the due date is the latest of all other tasks
+			if ( i == size()-1){
 				curr->next = temp;
 				temp->next = NULL;
 				
 				++size_;
-				
 				break;
 				
 				//insert(i,newData);
@@ -110,10 +93,8 @@ void SortedLinkedList<typeName, Comparator>::insert (const typeName& newData)
 
 
 template <class typeName, class Comparator>
-bool SortedLinkedList<typeName, Comparator>::checkPos (int newPos) const
-{
-	if ( newPos < 0 || newPos > size_ )
-	{
+bool SortedLinkedList<typeName, Comparator>::checkPos (int newPos) const{
+	if ( newPos < 0 || newPos > size_ ){
 		return false;
 	}
 
@@ -121,22 +102,17 @@ bool SortedLinkedList<typeName, Comparator>::checkPos (int newPos) const
 }
 
 template <class typeName, class Comparator>
-typeName SortedLinkedList<typeName, Comparator>:: at( int newPos )
-{
+typeName SortedLinkedList<typeName, Comparator>:: at( int newPos ){
 	Node* Temp;
-	
 	Temp = head;
 	
 	//moves tem pointer to pos node
-	if (newPos >= 0 && newPos <= size_-1)
-	{
-		for (int i = 0; i < newPos ; ++i )
-		{
+	if (newPos >= 0 && newPos <= size_-1){
+		for (int i = 0; i < newPos ; ++i ){
 		Temp = Temp->next;
 		}
 	}
-	else if (newPos < 0 && newPos > size_-1)
-	{
+	else if (newPos < 0 && newPos > size_-1){
 		return 0;
 	}
 	return Temp-> data;
@@ -172,56 +148,44 @@ bool SortedLinkedList<typeName, Comparator>::contains ( typeName newData )
 }
 
 template <class typeName, class Comparator>
-bool SortedLinkedList<typeName, Comparator>::erase (int newPos )
-{
+bool SortedLinkedList<typeName, Comparator>::erase (int newPos ){
 	Node* curr, *temp;
 	
 	curr = head;
 	temp = head;
 	
-	if (newPos >= 0 && newPos <= size_-1)
-	{
-	//delete if pos is in the first element
-	if (newPos == 0)
-	{
-		head = curr->next;
-		delete curr; 
-		
-		--size_;
-		return true;
-	}
-	else  
-	{	
-		for (int i = 0; i < newPos-1; ++i )
-		{
-			temp = temp->next;
-			
-		}
-		
-		if (newPos == size_-1)
-		{
-			curr = temp->next;
-			
-			temp->next = NULL;
-			
-			delete curr;
+	if (newPos >= 0 && newPos <= size_-1){
+		//delete if pos is in the first element
+		if (newPos == 0){
+			head = curr->next;
+			delete curr; 
 			
 			--size_;
 			return true;
+		}else{	
+			for (int i = 0; i < newPos-1; ++i ){
+				temp = temp->next;
+			}
+		
+			if (newPos == size_-1){
+				curr = temp->next;
+				
+				temp->next = NULL;
+				
+				delete curr;
+				
+				--size_;
+				return true;
+			}else{
+				curr =  temp-> next;
+				temp->next = curr->next;
+				delete curr;
+				
+				--size_;
+				return true;
+			}
 		}
-		else
-		{
-			curr =  temp-> next;
-			temp->next = curr->next;
-			delete curr;
-			
-			--size_;
-			return true;
-		}
-	}
-	}
-	else if (newPos < 0 && newPos > size_-1)
-	{
+	}else if (newPos < 0 && newPos > size_-1){
 		return false;
 	}
 	
@@ -229,9 +193,7 @@ bool SortedLinkedList<typeName, Comparator>::erase (int newPos )
 }
 
 template <class typeName, class Comparator>
-void SortedLinkedList<typeName, Comparator>::push_back(typeName newData)
-{
-
+void SortedLinkedList<typeName, Comparator>::push_back(typeName newData){
 	Node* temp = new Node;
 	
 	temp->data = newData;
@@ -239,17 +201,14 @@ void SortedLinkedList<typeName, Comparator>::push_back(typeName newData)
 	Node* curr;
 	curr = head;
 	
-	if (size_ == 0)
-	{
+	if (size_ == 0){
 		temp->next = NULL;
 		head = temp;
 			
 		++size_;
 	}
-	else
-	{
-		for (int i = 0; i < size_; ++i)
-		{
+	else{
+		for (int i = 0; i < size_; ++i){
 			curr = curr->next;
 		}
 	
@@ -257,8 +216,9 @@ void SortedLinkedList<typeName, Comparator>::push_back(typeName newData)
 		temp->next = NULL;
 		++size_;
 	}
-
 }
+
+//write get size function
 
 
 #endif
