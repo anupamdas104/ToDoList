@@ -1,11 +1,11 @@
 # ToDoList
 
-/************************************************************************************************
-Title:README.txt
-Author: Anupam Das
-********************************************************************************************/
+
+**Title :** README.txt
+**Author :** Anupam Das
+
 				
-Project Overview:
+### Project Overview:
 		This program implements a to-do list program, that aks the user for a command and performs the action accordingly. This program also 
 		has the option store different tasks. The commands of the to-do list application includes:
 		
@@ -28,7 +28,7 @@ Project Overview:
 			
 			9. EXIT - Exits the program.
 			
-Design:
+### Design:
 	This program is designed in 2 steps:
 			
 			1. Soring all the task information
@@ -104,7 +104,7 @@ Design:
 					
 					void loadTasks();
 					
-How to compile and run this code:
+### How to compile and run this code:
 	This code can be complied using the make file.
 	
 	To compile, run, and clean object files this code in Linux or Mac os, use the following commands:
