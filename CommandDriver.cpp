@@ -21,8 +21,7 @@ void CommandDriver:: addTasks()
 	cout << "What type of task is this? [G: GENERIC, S:SHOPPING, E:EVENT, H:HOMEWORK]" << endl;
 	cin >> taskType;
 	
-	if (!(taskType == 'G' || taskType == 'S' || taskType == 'E' || taskType == 'H'))
-	{
+	if (!(taskType == 'G' || taskType == 'S' || taskType == 'E' || taskType == 'H')){
 		cout << "Unrecognizable task type entered" << endl;
 		return;
 	}
@@ -65,22 +64,20 @@ void CommandDriver:: addTasks()
 	cout << "How would you describe this task?" << endl;
 	getline (cin, description);
 		
-	if (taskType == 'G')
-	{	
+	if (taskType == 'G'){	
 		//points the GenericTask pointer to generic task with all the information
 		storeCommands = new GenericTask(inputDate, description);	
 	}
-	else if (taskType == 'S')
-	{
+	else if (taskType == 'S'){
+		//array to store the shopping list
 		vector<string> shoppingList;
 		string shoppingListInput;
 			
-		cout << "What items do you need to buy?";
+		cout << "What items would like to add in the shopping list?";
 		cout<< "[Type your item and press ENTER to add another item. Type DONE to complete the list]" << endl;
 		
 		//user enters shopping item, and Done quits the loop
-		do 
-		{
+		do{
 			unsigned int i;
 			getline (cin, shoppingListInput);
 			
@@ -89,12 +86,10 @@ void CommandDriver:: addTasks()
 				shoppingListInput[i] = toupper(shoppingListInput[i]);
 			}
 
-			if (shoppingListInput == "DONE")
-			{
+			if (shoppingListInput == "DONE"){
 				break;
 			}
-			else
-			{
+			else{
 				shoppingList.push_back(shoppingListInput);
 			}
 		}	while(true);
@@ -103,8 +98,7 @@ void CommandDriver:: addTasks()
 		//points the GenericTask pointer to shopping task with all the information
 		storeCommands = new ShoppingTask(inputDate, description, shoppingList);
 	}
-	else if (taskType == 'E')
-	{
+	else if (taskType == 'E'){
 		string eventPlace, eventTime;
 		cout << "Where is this event taking place?" << endl;
 		getline(cin, eventPlace);
@@ -114,8 +108,7 @@ void CommandDriver:: addTasks()
 		//points the GenericTask pointer to Event with all the information	
 		storeCommands = new Event(inputDate, description, eventPlace, eventTime);
 	}
-	else if(taskType == 'H')
-	{
+	else if(taskType == 'H'){
 		string taskSubject;
 		
 		cout << "What subject is this homework task for?" <<endl; 
@@ -133,54 +126,39 @@ void CommandDriver:: addTasks()
 }
 
 
-void CommandDriver::printTasks()
-{
-	if (allTasks.size() == 0)
-	{
+void CommandDriver::printTasks(){
+	if (allTasks.size() == 0){
 		cout << "You have no outstanding tasks!" << endl;
-	}
-	else 
-	{
+	}else{
 		//runs a for loop and calls the appropriate print function for appropriate type
-		for (int i = 0; i < allTasks.size() ; ++i)
-		{
+		for (int i = 0; i < allTasks.size() ; ++i){
 			allTasks.at(i)->printTasksWithoutDetails(i+1);
 		}
 	}
 }
 
 //follows same idea as printTasks() functions
-void CommandDriver::printDetailedTasks()
-{
-	if (allTasks.size() == 0)
-	{
+void CommandDriver::printDetailedTasks(){
+	if (allTasks.size() == 0){
 		cout << "You have no outstanding tasks!" << endl;
-	}
-	else 
-	{
-		for (int i = 0; i < allTasks.size() ; ++i)
-		{
+	}else{
+		for (int i = 0; i < allTasks.size() ; ++i){
 			allTasks.at(i)->printTasksWithDetails(i+1);
 		}
 	}
 	
 }
 
-void CommandDriver::removeTasks()
-{
+void CommandDriver::removeTasks(){
 	int taskToBeRemoved;
-	if (allTasks.size() == 0)
-	{
+	if (allTasks.size() == 0){
 		cout << "You have no outstanding tasks!" << endl;
-	}
-	else
-	{
+	}else{
 		//takes user input for which task to be deleted, and deletes accordingly
 		cout << "Which task would you like to remove?" << endl;
 		cin >> taskToBeRemoved;
 		
-		if (taskToBeRemoved <= 0 && taskToBeRemoved > allTasks.size())
-		{
+		if (taskToBeRemoved <= 0 && taskToBeRemoved > allTasks.size()){
 			cout << "Invalid task number!" << endl;
 			return;
 		}
@@ -191,20 +169,15 @@ void CommandDriver::removeTasks()
 	}
 }
 
-void CommandDriver::completeTasks()
-{
+void CommandDriver::completeTasks(){
 	int taskToBeCompleted;
-	if (allTasks.size() == 0)
-	{
+	if (allTasks.size() == 0){
 		cout << "You have no outstanding tasks!" << endl;
-	}
-	else 
-	{
+	}else{
 		cout << "Which task would you like to complete?" << endl;
 		cin >> taskToBeCompleted;
 		
-		if (taskToBeCompleted <= 0 && taskToBeCompleted > allTasks.size())
-		{
+		if (taskToBeCompleted <= 0 && taskToBeCompleted > allTasks.size()){
 			cout << "Invalid task number!" << endl;
 			return;
 		}
@@ -219,31 +192,22 @@ void CommandDriver::completeTasks()
 }
 
 //same idea as printTasks functions
-void CommandDriver::printCompletedTasks()
-{
-	if (allCompletedTasks.size() == 0)
-	{
+void CommandDriver::printCompletedTasks(){
+	if (allCompletedTasks.size() == 0){
 		cout << "You have no completed tasks!" << endl;
 		
-	}
-	else 
-	{
-		for (int i = 0; i < allCompletedTasks.size() ; ++i)
-		{
+	}else{
+		for (int i = 0; i < allCompletedTasks.size() ; ++i){
 			allCompletedTasks.at(i)->printTasksWithoutDetails(i+1);
 		}
 	}
 }
 
 //saves tasks
-void CommandDriver::saveTasks()
-{
-	if (allTasks.size() == 0)
-	{
+void CommandDriver::saveTasks(){
+	if (allTasks.size() == 0)	{
 		cout << "You have no outstanding tasks!" << endl;
-	}
-	else
-	{
+	}else{
 		string fileToSave;
 		
 		cin.ignore();

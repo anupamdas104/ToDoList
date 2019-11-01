@@ -24,8 +24,8 @@ public:
 	virtual void printTasksWithDetails(int taskNumber);
 	
 	virtual void printTasksInFile(ostream& output);
+	
 protected:
-
 	//used to store all the shopping items
 	vector<string> shoppingItems;
 };
