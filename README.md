@@ -1,41 +1,37 @@
 # ToDoList
 
-
-**Title :** README.txt
-**Author :** Anupam Das
-
 				
 ### Project Overview:
-		This program implements a to-do list program, that aks the user for a command and performs the action accordingly. This program also 
-		has the option store different tasks. The commands of the to-do list application includes:
+This program implements a to-do list program, that aks the user for a command and performs the action accordingly. This program also 
+has the option store different tasks. The commands of the to-do list application includes:
 		
-			1. ADD - This command creates a new task. There are 4 types of tasks (Generic, HOmework, Shopping, Event). The user enters task type, due 
-					date, description. Additional information is required for the specialized tasks.
+1. ADD - This command creates a new task. There are 4 types of tasks (Generic, HOmework, Shopping, Event). The user enters task type, due 
+		date, description. Additional information is required for the specialized tasks.
+	
+2. PRINT - Prints all the incomplete tasks according to the order of due date.
 			
-			2. PRINT - Prints all the incomplete tasks according to the order of due date.
+3. DETAILED - prints all the incomplete tasks in order with all the specialized information.
 			
-			3. DETAILED - prints all the incomplete tasks in order with all the specialized information.
+4. REMOVE - Asks the user for a task number to be removed, and deletes the specific task.
+		
+5. COMPLETE - Asks a user for a task number, marks the task complete and remove from the original list (list with all the incomplete tasts).
 			
-			4. REMOVE - Asks the user for a task number to be removed, and deletes the specific task.
+6. COMPLETED - Prints all the completed tasks 
 			
-			5. COMPLETE - Asks a user for a task number, marks the task complete and remove from the original list (list with all the incomplete tasts).
-			
-			6. COMPLETED - Prints all the completed tasks 
-			
-			7. SAVE - Save all the all the incomplete tasks in a existed file (name provided by the user).
+7. SAVE - Save all the all the incomplete tasks in a existed file (name provided by the user).
 
-			8. LOAD - Loads all the tasks from a file provided by the user
+8. LOAD - Loads all the tasks from a file provided by the user
 			
-			9. EXIT - Exits the program.
+9. EXIT - Exits the program.
 			
 ### Design:
-	This program is designed in 2 steps:
-			
-			1. Soring all the task information
-			
-			2. Taking command and executing commands
+This program is designed in 2 steps:
 
-	1. Soring all the task information : 
+1. Soring all the task information
+			
+2. Taking command and executing commands
+
+1. Soring all the task information : 
 			
 		After the user decides to add a tasks, they are asked to enter type, description and dute date. Specialized tasks also require additional 
 		information. So, in order to record all the information about certain tasks, object for each type of created. Since there are 4 tasks, each 
@@ -79,7 +75,7 @@
 				date, description, and the subject.
 			
 
-	2. Taking command and executing commands
+2. Taking command and executing commands
 		All the commands are inputed by the user and stored in a variable in the main file. The main file creates an object of type CommandDriver, and calls the 
 		functions of desired tasks. The CommandDriver takes care of all the input and output necessary within the commands. This class has 2 private Data structures. 
 		They are 2 sorted linked lists, one to store incomplete tasks, other one to store complete tasks. It also has another private memeber variable of type "GenericTask"
@@ -103,6 +99,11 @@
 					void saveTasks();
 					
 					void loadTasks();
+					
+Updates TO be Made:
+	Integrate Cmake to the project
+	Use boost
+	Update legacy code
 					
 ### How to compile and run this code:
 	This code can be complied using the make file.
